@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from './lib/OrbitControls';
 import { Basis } from './basis';
 
 const scene = new THREE.Scene();
@@ -13,6 +14,8 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor("#EEEEEE");
 document.body.appendChild( renderer.domElement );
 
+const controls = new OrbitControls( camera, renderer.domElement );
+
 // scene.add(new THREE.GridHelper());
 scene.add(new THREE.AxesHelper(2));
 
@@ -22,6 +25,7 @@ scene.add( basis );
 
 function animate() {
     requestAnimationFrame( animate );
+    controls.update();
     
     basis.rotation.y += 0.01;
     renderer.render( scene, camera );
