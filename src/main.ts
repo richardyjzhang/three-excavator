@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from './lib/OrbitControls';
-import { Basis } from './basis';
+import Excavator from './excavator/excavator';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -19,15 +19,16 @@ const controls = new OrbitControls( camera, renderer.domElement );
 // scene.add(new THREE.GridHelper());
 scene.add(new THREE.AxesHelper(2));
 
-const basis = new Basis();
-basis.scale.set(0.001, 0.001, 0.001);
-scene.add( basis );
+const scale = 0.001;
+const excavator = new Excavator();
+excavator.scale.set(scale, scale, scale);
+scene.add(excavator);
 
 function animate() {
     requestAnimationFrame( animate );
     controls.update();
     
-    basis.rotation.y += 0.01;
+    // excavator.rotation.y += 0.01;
     renderer.render( scene, camera );
 }
 

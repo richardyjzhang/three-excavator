@@ -53,7 +53,7 @@ class Wheel extends THREE.Group {
     }
 }
 
-export class Basis extends THREE.Group {
+export default class Basis extends THREE.Group {
     private holder: THREE.Mesh; // 底盘
     private supporter: THREE.Mesh; // 支座
     private leftWheels: THREE.Group;
