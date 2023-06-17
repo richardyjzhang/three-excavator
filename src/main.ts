@@ -13,8 +13,8 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor("#EEEEEE");
 document.body.appendChild( renderer.domElement );
 
-const grid = new THREE.GridHelper();
-scene.add(grid);
+// scene.add(new THREE.GridHelper());
+scene.add(new THREE.AxesHelper(2));
 
 const basis = new Basis();
 basis.scale.set(0.001, 0.001, 0.001);
